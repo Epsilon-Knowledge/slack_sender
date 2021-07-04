@@ -1,10 +1,7 @@
-
-
-class Mail:
+class NotificationData:
 
   def __init__(self, stdin):
     self._raw_mail = stdin
-
 
   @property
   def raw_mail(self):
