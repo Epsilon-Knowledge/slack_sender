@@ -21,10 +21,10 @@ def main():
     # 標準入力を受け取り
     stdin = sys.stdin.read()
 
-    # DEBUG
+    # # DEBUG
     # print('stdin: ' + stdin)
 
-    # # DEBUG
+    # DEBUG
     # print('arguments: ' + str(args.d))
     msg = email.message_from_string(stdin)
     print(type(msg))
