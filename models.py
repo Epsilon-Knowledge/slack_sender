@@ -11,9 +11,6 @@ class NotificationData:
   def raw_mail(self, raw_mail):
     self._raw_mail = raw_mail
 
-  def transform_json(self):
-    pass
-
   def generate_message(self, json):
     pass
 
