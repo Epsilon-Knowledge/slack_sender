@@ -1,28 +1,38 @@
 import yaml
-#import argparse
+import argparse
 import sys
+import models
 
-CONFIG_FILE =  './config.yml'
+CONFIG_FILE =  '/usr/local/slack_sender/config.yml'
 
 def main():
+
+    # 引数の指定
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', help = 'debug mode', action='store_true')
+    args = parser.parse_args()
 
     # configファイルの読み込み
     with open(CONFIG_FILE, 'r') as yml:
       config = yaml.safe_load(yml)
 
-    print('hello world')
-    print(config)
+    # 標準入力を受け取り
+    stdin = sys.stdin.read()
 
-    # 標準入力から読み込み
-    text = sys.stdin.read()  
-    print(text)
-    # 引数の指定
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument("mail_body", help = "the body of mail you want to transfer to slack.")
-    # args = parser.parse_args()
+    # DEBUG
+    print('stdin: ' + stdin)
 
-    #print(args.mail_body)
-    # print(args)
+    # DEBUG
+    print('arguments: ' + str(args.d))
+
+    # jsonに整形
+
+
+
+    # 本文を作成？
+
+    # slackに送信
+
 
 if __name__ == '__main__':
     main()
