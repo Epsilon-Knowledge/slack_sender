@@ -3,10 +3,12 @@ import textwrap
 
 class NotificationData:
 
-    def __init__(self, stdin):
+    def __init__(self, stdin, mode):
         # セッターを使う。はず。
         self.raw_mail = stdin
+        self.debug = mode
 
+    # 受信したメール本文。
     @property
     def raw_mail(self):
         return self._raw_mail
@@ -14,6 +16,15 @@ class NotificationData:
     @raw_mail.setter
     def raw_mail(self, raw_mail):
         self._raw_mail = raw_mail
+
+    # デバッグモードか否か。
+    @property
+    def mode(self):
+        return self._mode
+
+    @mode.setter
+    def mode(self, flag):
+        self._mode = flag
 
     def generate_message(self):
         # メールをパース
@@ -25,11 +36,6 @@ class NotificationData:
                         "x_original_to": msg.get('X-Original-To'),
                         "to": msg.get('To'),
                         "subject": msg.get('Subject') }
-
-        # DEBUG
-        print('------------DEBUG BEGIN------------')
-        print(format_list)
-        print('------------DEBUG E N D------------')
 
         # 本文以外を作る
         body = textwrap.dedent("""
