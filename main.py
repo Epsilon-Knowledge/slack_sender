@@ -11,20 +11,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', help = 'debug mode', action = 'store_true')
     args = parser.parse_args()
+    #print(args.d)
 
     # configファイルの読み込み
     with open(CONFIG_FILE, 'r') as yml:
       config = yaml.safe_load(yml)
 
-
     # 標準入力を受け取り
-    stdin = sys.stdin.read()
-
-    # # DEBUG
-    # print('stdin: ' + stdin)
-
-    # DEBUG
-    # print('arguments: ' + str(args.d))
+    #stdin = sys.stdin.read()
 
     # 本文を作成
 
