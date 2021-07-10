@@ -2,7 +2,6 @@ import yaml
 import argparse
 import sys
 import models
-import email
 
 CONFIG_FILE =  '/usr/local/slack_sender/config.yml'
 
@@ -26,15 +25,6 @@ def main():
 
     # DEBUG
     # print('arguments: ' + str(args.d))
-    msg = email.message_from_string(stdin)
-    print(type(msg))
-    print(msg.get('Date'))
-    print(msg.get('Return-Path'))
-    print(msg.get('From'))
-    print(msg.get('Subject'))
-    #print(msg.items())
-    print(msg.get_payload(decode = False))
-
 
     # 本文を作成
 
