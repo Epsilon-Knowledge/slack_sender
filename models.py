@@ -1,5 +1,6 @@
 import email
 import textwrap
+from slack_sdk.webhook import WebhookClient
 
 class NotificationData:
 
@@ -56,4 +57,9 @@ class NotificationData:
         return body
 
     def send_slack(self):
-      pass
+        url = "https://xxxxxxxxxxxxxxxxxxxxxx"
+        webhook = WebhookClient(url)
+        response = webhook.send(text="Hello!")
+        assert response.status_code == 200
+        assert response.body == "ok"
+
