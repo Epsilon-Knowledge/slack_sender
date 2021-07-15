@@ -1,4 +1,4 @@
 # These are sample variables.
 # If you use this program, you should replace this config.yml with one you write as you like.
-MODE: 'this is mode'
+DEBUG_MODE: false
 API_URL: 'this is api url'
