@@ -4,10 +4,11 @@ from slack_sdk.webhook import WebhookClient
 
 class NotificationData:
 
-    def __init__(self, stdin, mode):
+    def __init__(self, stdin, debug, url):
         # セッターを使う。はず。
         self.raw_mail = stdin
-        self.debug = mode
+        self.debug = debug
+        self.url = url
 
     # 受信したメール本文。
     @property
@@ -20,12 +21,21 @@ class NotificationData:
 
     # デバッグモードか否か。
     @property
-    def mode(self):
-        return self._mode
+    def debug(self):
+        return self.debug
 
-    @mode.setter
-    def mode(self, flag):
-        self._mode = flag
+    @debug.setter
+    def debug(self, debug):
+        self._debug = debug
+
+    # Slack API URL
+    @property
+    def url(self):
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        self._url = url
 
     def generate_message(self):
         # メールをパース
@@ -57,9 +67,13 @@ class NotificationData:
         return body
 
     def send_slack(self):
-        url = "https://xxxxxxxxxxxxxxxxxxxxxx"
+
+        text = self.generate_message()
+        url = self.url
+
         webhook = WebhookClient(url)
-        response = webhook.send(text="Hello!")
+        
+        response = webhook.send(text = text)
+ 
         assert response.status_code == 200
         assert response.body == "ok"
-
