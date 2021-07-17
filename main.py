@@ -33,8 +33,7 @@ def main():
         slack_message_data.send_slack()
 
     except Exception as e:
-        logger.exception("Some problems have happened.")
-
+        logger.exception(e)
 
 if __name__ == '__main__':
     main()
