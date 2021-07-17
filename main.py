@@ -2,7 +2,7 @@ import yaml
 import argparse
 import sys
 import models
-from logging import getLogger
+from logging import getLogger, basicConfig
 
 CONFIG_FILE =  '/usr/local/slack_sender/config.yml'
 
@@ -20,7 +20,7 @@ def main():
           config = yaml.safe_load(yml)
 
         # ログの開始
-        logging.basicConfig(filename = config['LOG_FILE'])
+        basicConfig(filename = config['LOG_FILE'])
         logger = getLogger(__name__)
 
         # 標準入力を受け取り
