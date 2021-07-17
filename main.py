@@ -20,7 +20,7 @@ def main():
           config = yaml.safe_load(yml)
 
         # ログの開始
-        basicConfig(filename = config['LOG_FILE'])
+        basicConfig(filename = config['LOG_FILE'], format='%(asctime)s [%(levelname)s]: %(message)s')
         logger = getLogger(__name__)
 
         # 標準入力を受け取り
