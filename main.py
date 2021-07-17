@@ -2,29 +2,39 @@ import yaml
 import argparse
 import sys
 import models
+from logging import getLogger
 
 CONFIG_FILE =  '/usr/local/slack_sender/config.yml'
 
 def main():
 
-    # 引数の指定
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('-d', help = 'debug mode', action = 'store_true')
-    # args = parser.parse_args()
-    #print(args.d)
+    try:
+        # 引数の指定
+        # parser = argparse.ArgumentParser()
+        # parser.add_argument('-d', help = 'debug mode', action = 'store_true')
+        # args = parser.parse_args()
+        #print(args.d)
 
-    # configファイルの読み込み
-    with open(CONFIG_FILE, 'r') as yml:
-      config = yaml.safe_load(yml)
+        # configファイルの読み込み
+        with open(CONFIG_FILE, 'r') as yml:
+          config = yaml.safe_load(yml)
 
-    # 標準入力を受け取り
-    stdin = sys.stdin.read()
+        # ログの開始
+        logging.basicConfig(filename = config['LOG_FILE'])
+        logger = getLogger(__name__)
 
-    slack_message_data = models.NotificationData(stdin, config['DEBUG_MODE'], config['API_URL'])
+        # 標準入力を受け取り
+        stdin = sys.stdin.read()
 
-    # 本文を作成
-    # slackに送信
-    slack_message_data.send_slack()
+        slack_message_data = models.NotificationData(stdin, config['DEBUG_MODE'], config['API_URL'])
+
+        # 本文を作成
+        # slackに送信
+        slack_message_data.send_slack()
+
+    except Exception as e:
+        logger.exception("Some problems have happened.")
+
 
 if __name__ == '__main__':
     main()
