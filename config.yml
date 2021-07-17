@@ -2,4 +2,4 @@
 # If you use this program, you should replace this config.yml with one you write as you like.
 DEBUG_MODE: false
 API_URL: 'this is api url'
-LOG_DIR: '/var/log/slack_sender/trace.log'
+LOG_FILE: '/var/log/slack_sender/trace.log'
