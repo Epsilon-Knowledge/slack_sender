@@ -1,5 +1,8 @@
-# These are sample variables.
-# If you use this program, you should replace this config.yml with one you write as you like.
+# Specify the API URL of slack incomming webhook.
+API_URL: 'THIS_IS_API_URI'
+
+# If you wouldn't like to send a messaage to slack and only to check on it, specify 'true'.
 DEBUG_MODE: false
-API_URL: 'this is api url'
+
+# The log is outputed here. It includes stack trace and debug above.
 LOG_FILE: './trace.log'
