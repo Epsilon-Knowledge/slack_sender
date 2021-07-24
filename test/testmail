@@ -1,0 +1,14 @@
+From root@YUUDACHI.MY-WIKI.KOKONANA.TOKYO.TEST  Sun Jul  4 09:35:00 2021
+Return-Path: <root@YUUDACHI.MY-WIKI.KOKONANA.TOKYO.TEST>
+X-Original-To: root@localhost
+Delivered-To: root@localhost
+Received: by YUUDACHI.MY-WIKI.KOKONANA.TOKYO.TEST (Postfix, from userid 0)
+        id B4967BD68A; Sun,  4 Jul 2021 09:35:00 +0000 (UTC)
+Subject: test title
+To: <root@localhost>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20210704093500.B4967BD68A@YUUDACHI.MY-WIKI.KOKONANA.TOKYO.TEST>
+Date: Sun,  4 Jul 2021 09:35:00 +0000 (UTC)
+From: root <root@YUUDACHI.MY-WIKI.KOKONANA.TOKYO.TEST>
+
+hello root
