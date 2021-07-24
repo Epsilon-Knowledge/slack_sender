@@ -2,7 +2,7 @@ import yaml
 import argparse
 import sys
 import models
-from logging import getLogger, basicConfig, DEBUG, INFO
+from logging import getLogger, basicConfig, INFO
 
 CONFIG_FILE =  '/usr/local/slack_sender/config.yml'
 
