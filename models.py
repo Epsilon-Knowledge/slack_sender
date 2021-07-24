@@ -4,10 +4,9 @@ from slack_sdk.webhook import WebhookClient
 
 class NotificationData:
 
-    def __init__(self, stdin, debug, url):
+    def __init__(self, stdin, url):
         # セッターを使う。はず。
         self.raw_mail = stdin
-        self.debug = debug
         self.url = url
 
     # 受信したメール本文。
@@ -18,15 +17,6 @@ class NotificationData:
     @raw_mail.setter
     def raw_mail(self, raw_mail):
         self._raw_mail = raw_mail
-
-    # デバッグモードか否か。
-    @property
-    def debug(self):
-        return self.debug
-
-    @debug.setter
-    def debug(self, debug):
-        self._debug = debug
 
     # Slack API URL
     @property
