@@ -51,10 +51,10 @@ postfixの`/etc/aliases`でメールを標準入力としてコマンドにわ�
 
 ```
 # rootのメールをslackに送る
-root: '| python main.py'
+root: | "python /path/to/main.py"
 ```
 
-なお`python`コマンドは後述の環境で作った場合、`. /path/to/activate`を実行するか`python` → `/path/to/python`に置き換えること。
+なお`python`コマンドは後述の環境で作った場合、`. /path/to/activate`を実行するか`python` → `/path/to/python`に置き換えること。
 
 ## venv+pipによるslack_sender用python環境構築方法
 
