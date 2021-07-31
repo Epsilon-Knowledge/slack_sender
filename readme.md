@@ -36,10 +36,10 @@ requirements.txtのパッケージがインストールされていること。
 
 ```
 # echo版
-echo "some message you'd like to send" | python main.py
+echo "some message you'd like to send" | python /path/to/main.py
 
 # cat版
-cat << EOF | python main.py
+cat << EOF | python /path/to/main.py
 some message1
 some message2
 some message3
@@ -51,10 +51,10 @@ postfixの`/etc/aliases`でメールを標準入力としてコマンドにわ�
 
 ```
 # rootのメールをslackに送る
-root: '| python main.py'
+root: | "python /path/to/main.py"
 ```
 
-なお`python`コマンドは後述の環境で作った場合、`. /path/to/activate`を実行するか`python` → `/path/to/python`に置き換えること。
+なお`python`コマンドは後述の環境で作った場合、`. /path/to/activate`を実行するか`python` → `/path/to/python`に置き換えること。
 
 ## venv+pipによるslack_sender用python環境構築方法
 
@@ -85,16 +85,19 @@ ll /usr/local/venv/slack_sender/bin
 # 必要なパッケージをインストール
 /usr/local/venv/slack_sender/bin/pip install -r /usr/local/slack_sender/requirements.txt
 /usr/local/venv/slack_sender/bin/pip list
-
-# テスト時など`python`と実行したときに自動でvenvで作成したpythonが使われるようにしたいときは以下のコマンドを実行する。
-# . /usr/local/venv/slack_sender/bin/activate
-
-# スクリプトに仕込むとき等、直接python仮想環境のpythonコマンドを実行するときは以下のように実行する。
-# /usr/local/venv/slack_sender/bin/python /usr/local/slack_sender/main.py
-
 ```
 
+テスト時など`python`と実行したときに自動でvenvで作成したpythonが使われるようにしたいときは以下のコマンドを実行する。
 
+```
+. /usr/local/venv/slack_sender/bin/activate
 
+python /usr/local/slack_sender/main.py
+```
 
+スクリプトに仕込むとき等、直接python仮想環境のpythonコマンドを実行するときは以下のように実行する。
+
+```
+/usr/local/venv/slack_sender/bin/python /usr/local/slack_sender/main.py
+```
 
