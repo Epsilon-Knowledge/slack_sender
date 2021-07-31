@@ -36,10 +36,10 @@ requirements.txtのパッケージがインストールされていること。
 
 ```
 # echo版
-echo "some message you'd like to send" | python main.py
+echo "some message you'd like to send" | python /path/to/main.py
 
 # cat版
-cat << EOF | python main.py
+cat << EOF | python /path/to/main.py
 some message1
 some message2
 some message3
