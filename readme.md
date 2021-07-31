@@ -85,16 +85,19 @@ ll /usr/local/venv/slack_sender/bin
 # 必要なパッケージをインストール
 /usr/local/venv/slack_sender/bin/pip install -r /usr/local/slack_sender/requirements.txt
 /usr/local/venv/slack_sender/bin/pip list
-
-# テスト時など`python`と実行したときに自動でvenvで作成したpythonが使われるようにしたいときは以下のコマンドを実行する。
-# . /usr/local/venv/slack_sender/bin/activate
-
-# スクリプトに仕込むとき等、直接python仮想環境のpythonコマンドを実行するときは以下のように実行する。
-# /usr/local/venv/slack_sender/bin/python /usr/local/slack_sender/main.py
-
 ```
 
+テスト時など`python`と実行したときに自動でvenvで作成したpythonが使われるようにしたいときは以下のコマンドを実行する。
 
+```
+. /usr/local/venv/slack_sender/bin/activate
 
+python /usr/local/slack_sender/main.py
+```
 
+スクリプトに仕込むとき等、直接python仮想環境のpythonコマンドを実行するときは以下のように実行する。
+
+```
+/usr/local/venv/slack_sender/bin/python /usr/local/slack_sender/main.py
+```
 
